@@ -2,6 +2,7 @@
 
 import { ModalSignOut } from "@/components/ModalSignOut";
 import { useAuth } from "@/hooks/useAuth";
+import { Metadata } from "next";
 import { useRouter } from "next/navigation";
 import { ReactNode, useState } from "react";
 import { IoIosCalculator, IoIosCopy, IoIosDocument } from "react-icons/io";

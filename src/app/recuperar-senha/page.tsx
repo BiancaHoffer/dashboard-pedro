@@ -53,7 +53,7 @@ export default function RecorverPassword() {
           Voltar para página de Login
         </button>
       </form>
-      <a className="p-2 text-[#00000037] sm:text-sm text-center" href="https://www.linkedin.com/in/bianca-macedo-hoffer/" target="_blank">
+      <a className="p-2 text-sm text-[#00000037] sm:text-xs text-center" href="https://www.linkedin.com/in/bianca-macedo-hoffer/" target="_blank">
         Desenvolvido por | Bianca Macedo Hoffer Madruga
       </a>
     </main>
