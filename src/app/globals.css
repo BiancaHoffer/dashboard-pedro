@@ -2,26 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+input:active,
+select:active,
+textarea:active {
+  box-shadow: 0 0 0 0;
+
+  outline: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+input:focus,
+select:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+
+  height: 15px;
+  background: #dedede;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #f5f5f5;
+  border-radius: 16px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #474747;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #474747;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: -407px 0 0 400px #474747;
+}
+
+input[type="range"]::-moz-range-thumb {
+  box-shadow: -407px 0 0 400px #474747;
+}
+
+input[type="range"] {
+  overflow: hidden;
+  border-radius: 16px;
+  border: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+#input-date {
+  all: unset;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  color: transparent;
 }
