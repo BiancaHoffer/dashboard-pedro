@@ -80,7 +80,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(null);
       setUserLogged(false);
 
-      toast.error("E-mail não confere. Tente novamente.");
+      toast.error("E-mail ou senha não conferem. Tente novamente.");
 
       const errorCode = error as FirebaseError;
 
