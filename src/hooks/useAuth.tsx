@@ -80,6 +80,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(null);
       setUserLogged(false);
 
+      toast.error("E-mail não confere. Tente novamente.");
+
       const errorCode = error as FirebaseError;
 
       if (errorCode.code === "auth/invalid-login-credentials") {
