@@ -22,11 +22,11 @@ interface SidebarItem {
 const icons = [<MdSpaceDashboard />, <IoIosCalculator />, <IoIosCopy />, <IoIosDocument />, <PiUsersThreeFill />]
 
 const items = [
-  { icon: icons[0], url: "http://localhost:3000/private/dashboard", title: "Dashboard" },
-  { icon: icons[1], url: "http://localhost:3000/private/calculadora-adm", title: "Calculadora" },
-  { icon: icons[2], url: "http://localhost:3000/private/gerador-de-contrato", title: "Contrato" },
-  { icon: icons[3], url: "http://localhost:3000/private/gerador-de-nota-primissoria", title: "Nota Promissória" },
-  { icon: icons[4], url: "http://localhost:3000/private/lista-de-clientes", title: "Lista de clientes" }
+  { icon: icons[0], url: "/private/dashboard", title: "Dashboard" },
+  { icon: icons[1], url: "/private/calculadora-adm", title: "Calculadora" },
+  { icon: icons[2], url: "/private/gerador-de-contrato", title: "Contrato" },
+  { icon: icons[3], url: "/private/gerador-de-nota-primissoria", title: "Nota Promissória" },
+  { icon: icons[4], url: "//private/lista-de-clientes", title: "Lista de clientes" }
 ]
 
 export default function privateLayout({ children }: privateLayoutProps) {
