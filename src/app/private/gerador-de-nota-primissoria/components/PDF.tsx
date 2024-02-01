@@ -338,7 +338,7 @@ export function PDF({
 
         <Page size="A4" style={styles.page}>
           <View style={styles.layoutContainerNote}>
-            <Text style={styles.text2}>Dados adiconais:</Text>
+            <Text style={styles.text2}>Dados adicionais:</Text>
             <Text style={styles.text}>Telefone: {dataForm?.phone}</Text>
             <Text style={styles.text}>Contato de emergência: {dataForm?.contactEmengency}</Text>
             <Text style={styles.text}>RG: {dataForm?.rg}</Text>
