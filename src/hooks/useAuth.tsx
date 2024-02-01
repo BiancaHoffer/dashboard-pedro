@@ -87,10 +87,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
         return;
       }
 
-      if (errorCode.code === "INVALID_LOGIN_CREDENTIALS") {
+      if (errorCode.message === "INVALID_LOGIN_CREDENTIALS") {
         toast.error("Senha ou e-mail não conferem.");
         return;
       }
+
 
       if (errorCode.code === "auth/user-not-found") {
         toast.error("E-mail não confere. Tente novamente.");
