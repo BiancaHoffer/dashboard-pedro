@@ -8,7 +8,7 @@ import axios from 'axios';
 
 import { toast } from 'react-toastify';
 
-import { maskCurrency, maskPhone } from '@/Masks/masks';
+import { maskCurrency, maskPhone, maskDate } from '@/Masks/masks';
 
 import { Loading } from '@/components/Loading';
 import { Calender } from '@/components/Calender';
@@ -32,7 +32,8 @@ import {
   setDoc,
   where
 } from 'firebase/firestore';
-import { ClientData } from '@/@types/clients';
+import { dateFormat2 } from '@/utils/dateFormat2';
+import { dateFormat } from '@/utils/dateFormart';
 
 const createNoteForm = z.object({
   rg: z.string(),
@@ -226,7 +227,6 @@ export default function GeradorNotaPromissoria() {
       setLoadingCPF(false);
     }
   };
-
 
   useEffect(() => {
     setIsClient(true);

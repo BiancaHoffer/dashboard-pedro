@@ -1,5 +1,5 @@
 export function dateFormat(value: any) {
-  if (!value) {
+  if (value === "dd/mm/aaaa") {
     return "dd/mm/aaaa"
   }
 

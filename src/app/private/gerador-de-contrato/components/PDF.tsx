@@ -1,6 +1,7 @@
 import { ClientData } from '@/@types/clients';
 
 import { maskCEP } from '@/Masks/masks';
+import { brlExtenso } from '@/utils/brlExtenso';
 import { dateFormat } from '@/utils/dateFormart';
 import { dateFormat2 } from '@/utils/dateFormat2';
 

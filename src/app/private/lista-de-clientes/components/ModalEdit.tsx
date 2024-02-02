@@ -29,7 +29,7 @@ import {
 } from "firebase/firestore";
 import { db } from "@/services/firebase";
 import { ClientData } from "@/@types/clients";
-import { maskCurrency, maskPhone } from "@/Masks/masks";
+import { maskCurrency, maskDate, maskPhone } from "@/Masks/masks";
 
 interface ModalDeleteProps {
   isOpen: boolean;
@@ -166,7 +166,6 @@ export function ModalEdit({ isOpen, setIsOpen, client }: ModalDeleteProps) {
     }
   };
 
-
   async function consultingCPFandCNPJ() {
     if (cpf.length === 0) {
       toast.warn("Preencha o campo CPF/CNPJ para consultar");
@@ -213,7 +212,6 @@ export function ModalEdit({ isOpen, setIsOpen, client }: ModalDeleteProps) {
       setLoadingCPF(false);
     }
   };
-
 
   function cancelEdit() {
     setIsOpen(false);

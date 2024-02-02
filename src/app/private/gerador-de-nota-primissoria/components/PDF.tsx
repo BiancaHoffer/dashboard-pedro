@@ -2,11 +2,11 @@
 import { ClientData } from '@/@types/clients';
 
 import { maskCEP, maskCPF } from '@/Masks/masks';
-import { currencyFormat2 } from '@/utils/currencyFormat2';
+import { brlExtenso } from '@/utils/brlExtenso';
 
 import { dateFormat } from '@/utils/dateFormart';
 import { dateFormat2 } from '@/utils/dateFormat2';
-import { dateFormat3 } from '@/utils/dateFormat3';
+import { dateWrittenInFull } from '@/utils/dateWrittenInFull';
 
 import {
   Page,
@@ -151,11 +151,6 @@ export function PDF({
 
   const today = new Date();
 
-  const currencyFormatWithoutComma = (value: any) => {
-    const valorModificado = value.replace(',', '.');
-    return valorModificado;
-  };
-
   if (isModal) {
     return (
       <Document>
@@ -178,28 +173,20 @@ export function PDF({
                 </View>
               </View>
               <View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "4px", marginTop: "8px" }}>
-                <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
-                  <Text style={styles.text}>No dia</Text>
-                  <Text style={styles.text5}>{dateFormat2(dataModal?.dueDateNote)}</Text>
-                  <Text style={styles.text}>pagarei por esta única </Text>
-                  <Text style={styles.text}>via de <Text style={styles.text2}>NOTA PROMISSÓRIA</Text></Text>
-                  <Text style={styles.text}>a</Text>
-
-                </View>
-
-                <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
-                  <Text style={styles.text5}>PEDRO A. DE OLIVEIRA JR</Text>
-                  <Text style={styles.text}>CPF</Text>
-                  <Text style={styles.text2}>93503610278</Text>
-                  <Text style={styles.text}>ou á sua ordem a</Text>
-                  <Text style={styles.text}>quantia de </Text>
-                  <Text style={styles.text5}>R$ {dataModal?.valueParcelNote} reais</Text>
-                </View>
-
-                <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
-
-                  <Text style={styles.text}>em moeda corrente desse país.</Text>
-                </View>
+                <Text style={styles.text}>No dia</Text>
+                <Text style={styles.text5}>{dateWrittenInFull(dataModal?.dueDateNote)}</Text>
+                <Text style={styles.text}>pagarei por esta única </Text>
+                <Text style={styles.text}>via de </Text>
+                <Text style={styles.text2}>NOTA PROMISSÓRIA</Text>
+                <Text style={styles.text}>a</Text>
+                <Text style={styles.text5}>PEDRO A. DE OLIVEIRA JR</Text>
+                <Text style={styles.text}>CPF</Text>
+                <Text style={styles.text2}>93503610278</Text>
+                <Text style={styles.text}>ou á sua ordem a</Text>
+                <Text style={styles.text}>quantia de </Text>
+                {/**@ts-ignore */}
+                <Text style={styles.text5}>{brlExtenso(dataModal?.valueParcelNote)}</Text>
+                <Text style={styles.text}>em moeda corrente desse país.</Text>
               </View>
               <View style={{ display: "flex", justifyContent: "space-between", marginTop: "23px", flexDirection: "row", flexWrap: "wrap" }}>
                 <View style={{ display: "flex", flexDirection: "row", gap: "4px" }}>
