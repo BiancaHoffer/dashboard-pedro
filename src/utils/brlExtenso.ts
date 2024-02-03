@@ -1,6 +1,14 @@
 import extenso from 'extenso';
 
 export function brlExtenso(value: string) {
-  const number = extenso(value, { mode: 'currency', currency: { type: 'BRL' } })
+  let valueBrl = value;
+
+  if (!value) {
+    valueBrl = "0,00";
+  } else {
+    valueBrl = value;
+  }
+
+  const number = extenso(valueBrl, { mode: 'currency', currency: { type: 'BRL' } })
   return number;
 }
