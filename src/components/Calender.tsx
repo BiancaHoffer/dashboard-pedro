@@ -6,7 +6,7 @@ interface CalenderProps extends ComponentProps<'input'> {
   value: any;
 }
 
-export function Calender({ value, ...props }: CalenderProps) {
+export function Calender({ value = "dd/mm/aaaa", ...props }: CalenderProps) {
   return (
     <div className="relative
      w-[100%] transition-all border-transparent border-[1px] shadow-sm border-zinc-200 hover:border-zinc-900 active:border-zinc-900 focus:border-zinc-900 rounded-lg focus-within:shadow-md">
