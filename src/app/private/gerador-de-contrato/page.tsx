@@ -194,7 +194,7 @@ export default function GeradorContrato() {
         const data = response.data;
 
         if (data.error) {
-          toast.warn("CNPJ inválido ou não existe.");
+          toast.warn("CNPJ inválido");
           return;
         }
 
@@ -202,33 +202,36 @@ export default function GeradorContrato() {
       }
 
       if (cpf.length === 11) {
-        const response = await axios.get(`https://consulta-de-cpf-cadastro-de-pessoas-fisicas.p.rapidapi.com/api/v1/cpf/${cpf}`, {
+        const response = await axios.get("https://cpf-validator.p.rapidapi.com/validate/cpf", {
+          params: { n: cpf },
           headers: {
             'X-RapidAPI-Key': 'e2358519c9msh4bfdacc81c71aa9p1d3d46jsn66515b8d4b52',
-            'X-RapidAPI-Host': 'consulta-de-cpf-cadastro-de-pessoas-fisicas.p.rapidapi.com'
+            'X-RapidAPI-Host': 'cpf-validator.p.rapidapi.com'
           }
-        });
+        })
 
-        const data = response.data;
-
-        if (!data.success) {
-          toast.warn("CPF inválido ou não encontrado");
-          return;
-        } else {
-          toast.success("CPF válido");
-        }
-
-        setName(data.data.nome);
+        toast.success("CPF válido");
       }
     } catch (error) {
-      toast.warn("CPF inválido ou não encontrado");
+      //@ts-ignore
+      if (error.message === "Request failed with status code 429") {
+        toast.warn("Requisições excedidas");
+        return;
+      }
+
+      //@ts-ignore
+      if (error.message === "Request failed with status code 406") {
+        toast.warn("CPF inválido");
+        return;
+      }
+
     } finally {
       setLoadingCPF(false);
     }
   };
 
   useEffect(() => {
-    setIsClient(true)
+    setIsClient(true);
   }, []);
 
   const watchValueParcel = watch("valueScheduleContract");
