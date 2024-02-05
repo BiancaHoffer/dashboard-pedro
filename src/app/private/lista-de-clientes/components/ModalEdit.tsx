@@ -222,7 +222,7 @@ export function ModalEdit({ isOpen, setIsOpen, client }: ModalDeleteProps) {
   }
 
   useEffect(() => {
-    if (client?.maritalState.name === "") {
+    if (client?.maritalState.name === "Selecionar estado civil") {
       setSelected(maritalStateList[0]);
     } else if (client?.maritalState.name === "Solteiro(a)") {
       setIndexMaritalState(1);
