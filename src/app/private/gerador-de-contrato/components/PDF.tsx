@@ -4,6 +4,7 @@ import { maskCEP } from '@/Masks/masks';
 import { brlExtenso } from '@/utils/brlExtenso';
 import { dateFormat } from '@/utils/dateFormart';
 import { dateFormat2 } from '@/utils/dateFormat2';
+import { dateWrittenInFull } from '@/utils/dateWrittenInFull';
 
 import {
   Page,
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
     borderColor: "#000000",
   },
   tableItemHead8: {
-    width: "75%",
+    width: "50%",
     paddingVertical: 2,
     paddingHorizontal: 4,
     backgroundColor: "#ffff",
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     borderColor: "#000000",
   },
   tableItemHead9: {
-    width: "25%",
+    width: "50%",
     paddingVertical: 2,
     paddingHorizontal: 4,
     backgroundColor: "#e7e7e7",
@@ -494,8 +495,8 @@ export function PDF({
                   </Text>
                 </View>
                 ? <View style={styles.tableItemHead7}>
-                  <Text style={styles.textType1}>
-                    R$ {dataModal?.valueScheduleContract}
+                  <Text style={[styles.textType1, { textTransform: "uppercase" }]}>
+                    R$ {dataModal?.valueScheduleContract} ({brlExtenso(String(dataModal?.valueScheduleContract))})
                   </Text>
                 </View>
               </View>
@@ -519,7 +520,7 @@ export function PDF({
                   </View>
                   <View style={styles.tableItemHead9}>
                     <Text style={styles.textType1}>
-                      {dateFormat(dataModal?.dateFinalScheduleContract)}
+                      {dateFormat(dataModal?.dateFinalScheduleContract)} ({dateWrittenInFull(dataModal?.dateFinalScheduleContract)})
                     </Text>
                   </View>
                 </View>
@@ -546,7 +547,7 @@ export function PDF({
               <Text style={styles.textType2}>E por estarem assim justos e contratados, firmam o presente instrumento em duas vias de igual teor.</Text>
             </View>
           </View>
-          <View style={{ marginTop: 32 }}>
+          <View style={{ marginTop: 20 }}>
             <Text style={styles.textType1}>Manaus, AM</Text>
             <Text style={styles.textType1}>{dateFormat2(today)}</Text>
           </View>
@@ -768,7 +769,7 @@ export function PDF({
                   </View>
                   <View style={styles.tableItemHead9}>
                     <Text style={styles.textType1}>
-                      {dateFormat(dataForm?.dateFinalScheduleContract)}
+                      {dateFormat(dataForm?.dateFinalScheduleContract)} ({dateWrittenInFull(dataModal?.dateFinalScheduleContract)})
                     </Text>
                   </View>
                 </View>
@@ -795,7 +796,7 @@ export function PDF({
               <Text style={styles.textType2}>E por estarem assim justos e contratados, firmam o presente instrumento em duas vias de igual teor.</Text>
             </View>
           </View>
-          <View style={{ marginTop: 32 }}>
+          <View style={{ marginTop: 20 }}>
             <Text style={styles.textType1}>Manaus, AM</Text>
             <Text style={styles.textType1}>{dateFormat2(today)}</Text>
           </View>
