@@ -175,7 +175,7 @@ export function PDF({
               </View>
               <View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "4px", marginTop: "8px" }}>
                 <Text style={styles.text}>No dia</Text>
-                <Text style={styles.text5}>{dateFormat2(dataModal?.dueDateNote)} ({dateWrittenInFull(dataModal?.dueDateNote)})</Text>
+                <Text style={styles.text5}>{dateWrittenInFull(dataModal?.dueDateNote)}</Text>
                 <Text style={styles.text}>pagarei por esta única </Text>
                 <Text style={styles.text}>via de </Text>
                 <Text style={styles.text2}>NOTA PROMISSÓRIA</Text>
@@ -186,7 +186,7 @@ export function PDF({
                 <Text style={styles.text}>ou á sua ordem a</Text>
                 <Text style={styles.text}>quantia de </Text>
                 {/**@ts-ignore */}
-                <Text style={styles.text5}>R$ {formatCurrency(dataModal?.valueParcelNote)} ({brlExtenso(dataModal?.valueParcelNote)})</Text>
+                <Text style={styles.text5}>R$ {brlExtenso(dataModal?.valueParcelNote)}</Text>
                 <Text style={styles.text}>em moeda corrente desse país.</Text>
               </View>
               <View style={{ display: "flex", justifyContent: "space-between", marginTop: "23px", flexDirection: "row", flexWrap: "wrap" }}>
@@ -263,7 +263,7 @@ export function PDF({
               <View style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "4px", marginTop: "8px" }}>
                 <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
                   <Text style={styles.text}>No dia</Text>
-                  <Text style={styles.text5}>{dateFormat2(dataForm?.dueDateNote)}</Text>
+                  <Text style={styles.text5}>{dateWrittenInFull(dataForm?.dueDateNote)}</Text>
                   <Text style={styles.text}>pagarei por esta única </Text>
                   <Text style={styles.text}>via de <Text style={styles.text2}>NOTA PROMISSÓRIA</Text></Text>
                   <Text style={styles.text}>a</Text>
@@ -276,7 +276,7 @@ export function PDF({
                   <Text style={styles.text2}>93503610278</Text>
                   <Text style={styles.text}>ou á sua ordem a</Text>
                   <Text style={styles.text}>quantia de </Text>
-                  <Text style={styles.text5}>R$ {dataForm?.valueParcelNote} reais</Text>
+                  <Text style={styles.text5}>R$ {brlExtenso(String(dataForm?.valueParcelNote))} reais</Text>
                 </View>
 
                 <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
