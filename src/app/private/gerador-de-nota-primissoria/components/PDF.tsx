@@ -186,7 +186,7 @@ export function PDF({
                 <Text style={styles.text}>ou á sua ordem a</Text>
                 <Text style={styles.text}>quantia de </Text>
                 {/**@ts-ignore */}
-                <Text style={styles.text5}>R$ {brlExtenso(dataModal?.valueParcelNote)}</Text>
+                <Text style={styles.text5}>{brlExtenso(dataModal?.valueParcelNote)}</Text>
                 <Text style={styles.text}>em moeda corrente desse país.</Text>
               </View>
               <View style={{ display: "flex", justifyContent: "space-between", marginTop: "23px", flexDirection: "row", flexWrap: "wrap" }}>
@@ -276,7 +276,7 @@ export function PDF({
                   <Text style={styles.text2}>93503610278</Text>
                   <Text style={styles.text}>ou á sua ordem a</Text>
                   <Text style={styles.text}>quantia de </Text>
-                  <Text style={styles.text5}>R$ {brlExtenso(String(dataForm?.valueParcelNote))} reais</Text>
+                  <Text style={styles.text5}>{brlExtenso(String(dataForm?.valueParcelNote))} reais</Text>
                 </View>
 
                 <View style={{ display: "flex", gap: "4px", flexDirection: "row" }}>
