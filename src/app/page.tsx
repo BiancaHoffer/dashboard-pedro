@@ -97,8 +97,8 @@ export default function Home() {
           </button>
         }
       </form>
-      <a className="p-2 text-sm text-[#00000037] sm:text-xs text-center" href="https://www.linkedin.com/in/bianca-macedo-hoffer/" target="_blank">
-        Desenvolvido por | Bianca Macedo Hoffer Madruga
+      <a className="p-2 text-sm text-[#00000037] sm:text-xs text-center" href="https://biancahoffer.vercel.app/" target="_blank">
+        Desenvolvido por | Bianca Hoffer
       </a>
     </main>
   )
