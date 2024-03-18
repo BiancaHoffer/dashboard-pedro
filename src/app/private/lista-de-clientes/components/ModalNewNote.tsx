@@ -17,6 +17,7 @@ import { PDF } from "../../gerador-de-nota-primissoria/components/PDF";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { dateFormat } from "@/utils/dateFormart";
 import { maskCEP, maskCPF } from "@/Masks/masks";
+import { Loading } from "@/components/Loading";
 
 interface ModalDeleteProps {
   client: ClientData;
@@ -195,7 +196,7 @@ export function ModalNewNote({ isOpen, setIsOpen, client }: ModalDeleteProps) {
                         />
                       }
                     >
-                      {({ url }) => (
+                      {({ url, loading }) => (
                         <div className="w-full max-w-[300px] sm:max-w-full">
                           <a
                             href={String(url)}
@@ -204,8 +205,16 @@ export function ModalNewNote({ isOpen, setIsOpen, client }: ModalDeleteProps) {
                             className='bg-red-600 flex gap-3 items-center justify-center py-3 sm:text-sm px-8 rounded-lg w-full transition-all text-white hover:bg-red-700'
                             type='button'
                           >
-                            <BsFilePdf />
-                            Criar documento
+                            {loading
+                              ? <>
+                                <Loading sizee="sm" />
+                                Carregando
+                              </>
+                              : <>
+                                <BsFilePdf />
+                                Criar documento
+                              </>
+                            }
                           </a>
                         </div>
                       )}

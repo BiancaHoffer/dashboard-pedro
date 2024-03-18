@@ -18,6 +18,7 @@ import { PDF } from "../../gerador-de-contrato/components/PDF";
 import { ClientData } from "@/@types/clients";
 import { maskCEP, maskCPF } from "@/Masks/masks";
 import { dateFormat } from "@/utils/dateFormart";
+import { Loading } from "@/components/Loading";
 
 interface ModalDeleteProps {
   client: ClientData;
@@ -28,6 +29,11 @@ interface ModalDeleteProps {
 export function ModalNewContract({ isOpen, setIsOpen, client }: ModalDeleteProps) {
   const [inspectDataIsComplete, setInspectDataIdComplete] = useState(false);
   const [isClient, setIsClient] = useState(false);
+
+  const [loading, setLoading] = useState(true);
+
+
+
 
   useEffect(() => {
     function inspectDataIdComplete() {
@@ -208,17 +214,29 @@ export function ModalNewContract({ isOpen, setIsOpen, client }: ModalDeleteProps
                         />
                       }
                     >
-                      {({ url }) => (
+                      {({ url, loading }) => (
                         <div className="w-full max-w-[300px] sm:max-w-full">
                           <a
                             href={String(url)}
                             target="_blank"
                             data-aos="zoom-out"
-                            className='bg-red-600 flex gap-3 items-center justify-center py-3 sm:text-sm px-8 rounded-lg w-full transition-all text-white hover:bg-red-700'
+                            className={` 
+                              ${loading && "cursor-not-allowed"}
+                              bg-red-600 flex gap-3 items-center justify-center py-3 sm:text-sm px-8 rounded-lg w-full transition-all text-white hover:bg-red-700
+                            `}
                             type='button'
                           >
-                            <BsFilePdf />
-                            Criar documento
+                            {loading
+                              ? <>
+                                <Loading sizee="sm" />
+                                Carregando
+                              </>
+                              : <>
+                                <BsFilePdf />
+                                Criar documento
+                              </>
+                            }
+
                           </a>
                         </div>
                       )}
